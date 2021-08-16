@@ -13,9 +13,10 @@ amqp.connect('amqp://localhost', (err, connection) => {
         const queue = 'hello';
 
         channel.assertQueue(queue, {
-            durable: false,
+            durable: true,
         });
 
+        channel.prefetch(1); // limit 1 message is consumed at a time
         console.log(' [x] Waiting for message in %s. To exit press Ctrl + C', queue);
         channel.consume(queue, msg => {
             const secs = msg.content.toString().split('.').length - 1;
