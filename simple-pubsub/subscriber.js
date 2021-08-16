@@ -24,7 +24,7 @@ amqp.connect('amqp://localhost', (err, connection) => {
             }
 
             console.log(' [x] Waiting for message in %s. To exit press Ctrl + C', q.queue);
-            channel.bindQueue(q.queue, exchange, '');
+            channel.bindQueue(q.queue, exchange);
 
             channel.consume(q.queue, msg => {
                 console.log(' [x] Receive %s', msg.content.toString());
