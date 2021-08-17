@@ -8,7 +8,6 @@ services:
       - "5672:5672"
     volumes:
       - "./data:/var/lib/rabbitmq/mnesia/"
-      - "./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf"
     networks:
       - rabbitmq
 

@@ -26,6 +26,18 @@
     - `*`: đại diện cho 1 từ bất kì (mỗi từ ngăn cách nhau bởi dấu chấm)
     - `#`: có thể đại diện cho 0 hoặc nhiều từ
 
+5. Config auth cho RabbitMQ
+- Mặc định thì rabbit chạy lên sẽ có user guest
+- Nếu muốn đổi user default thì chỉnh sửa trong file /etc/rabbitmq/rabbitmq.conf
+```
+loopback_users.guest = true
+listeners.tcp.default = 5672
+management.tcp.port = 15672
+
+default_user = <username>
+# default is "guest"
+default_pass = <password hashed in SHA512>
+```
 
 ### Rabbit commands:
 ```
@@ -37,4 +49,7 @@ rabbitmqctl list_exchanges
 
 # list all bindings
 rabbitmqctl list_bindings
+
+# add user
+rabbitmqctl add_user "username"
 ```
