@@ -18,7 +18,14 @@
 - Binding thể hiện một quan hệ giữa queue và exchange. Có thể hiểu là queue sẽ thích thú với message từ exchange này
 - Binding key có ý nghĩa thế nào phụ thuộc vào tùy loại exchange
     - `fanout` thì sẽ ko quan tâm tới binding key
-    - `direct` message sẽ dùng binding key như là 1 routing key
+    - `direct` message sẽ dùng binding key như là 1 routing key, có thể dùng để phân loại message, message sẽ được đưa đến đúng những consumer cần.
+
+4. Topic exchange
+- Message được gửi tới topic exchange thì có một `routing_key` không phải là 1 từ bất kì, mà bắt buộc phải là một list các từ ngăn cách bởi dấu chấm, limit là 255 bytes.
+- Với topic exchange thì message được route tương tự như với direct exchange, nhưng chúng ta có thể dùng wildcard thay vì phải chỉ định chính xác routing key
+    - `*`: đại diện cho 1 từ bất kì (mỗi từ ngăn cách nhau bởi dấu chấm)
+    - `#`: có thể đại diện cho 0 hoặc nhiều từ
+
 
 ### Rabbit commands:
 ```
