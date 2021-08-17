@@ -14,6 +14,11 @@
 - Exchange này có vai trò sẽ send message tới tất cả các queue được binding với nó.
 - Source: `./simple-pubsub`
 
+3. Binding key
+- Binding thể hiện một quan hệ giữa queue và exchange. Có thể hiểu là queue sẽ thích thú với message từ exchange này
+- Binding key có ý nghĩa thế nào phụ thuộc vào tùy loại exchange
+    - `fanout` thì sẽ ko quan tâm tới binding key
+    - `direct` message sẽ dùng binding key như là 1 routing key
 
 ### Rabbit commands:
 ```
