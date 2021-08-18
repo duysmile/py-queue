@@ -51,5 +51,8 @@ rabbitmqctl list_exchanges
 rabbitmqctl list_bindings
 
 # add user
-rabbitmqctl add_user "username"
+rabbitmqctl add_user "username"ơ
+
+# set permissions
+rabbitmqctl set_permissions -p "custom-vhost" "username" ".*" ".*" ".*"
 ```
